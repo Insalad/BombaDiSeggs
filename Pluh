@@ -1,4 +1,3 @@
--- internal ui -- 
 if game:GetService("CoreGui"):FindFirstChild("Bar") then return end
 local originalfov = workspace.CurrentCamera.FieldOfView
 local sound = Instance.new("Sound")
@@ -148,7 +147,7 @@ local Converted = {
 	["_UITextSizeConstraint4"] = Instance.new("UITextSizeConstraint");
 	["_LocalScript16"] = Instance.new("LocalScript");
 }
--- Properties:
+
 Converted["_Bar"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Converted["_Bar"].Name = "Bar"
 Converted["_Bar"].Parent = game:GetService("CoreGui")
@@ -828,10 +827,10 @@ Converted["_Execute2"].Parent = Converted["_Dex"]
 Converted["_UICorner28"].Parent = Converted["_Execute2"]
 Converted["_UITextSizeConstraint4"].MaxTextSize = 20
 Converted["_UITextSizeConstraint4"].Parent = Converted["_Execute2"]
--- Fake Module Scripts:
+
 local fake_module_scripts = {}
--- Fake Local Scripts:
-local function XJAMBH_fake_script() -- Fake Script: StarterGui.Bar.Blur.BarFrame.time.LocalScript
+
+local function XJAMBH_fake_script() 
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_time"]
@@ -844,7 +843,7 @@ local function XJAMBH_fake_script() -- Fake Script: StarterGui.Bar.Blur.BarFrame
         return req(obj)
     end
 	local timecount = script.Parent
-	
+
 	function timeupdate()
 		local current = os.date("*t") 
 		local hours = current.hour
@@ -852,46 +851,60 @@ local function XJAMBH_fake_script() -- Fake Script: StarterGui.Bar.Blur.BarFrame
 		local formatted = string.format("%02d:%02d", hours, minutes)
 		timecount.Text = formatted
 	end
-	
+
 	while wait() do
 		timeupdate()
 	end
-	
+
 end
-local function tweenColorChange(object, newImageColor, newBackgroundColor)
-    local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-    local imageColorTween = game:GetService("TweenService"):Create(object, tweenInfo, {ImageColor3 = newImageColor})
-    local backgroundColorTween = game:GetService("TweenService"):Create(object, tweenInfo, {BackgroundColor3 = newBackgroundColor})
-    imageColorTween:Play()
-    backgroundColorTween:Play()
+function tcc(object, newimgc, newbgc)
+    local ti = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local imgcolortw = game:GetService("TweenService"):Create(object, ti, {ImageColor3 = newimgc})
+    local bgctw = game:GetService("TweenService"):Create(object, ti, {BackgroundColor3 = newbgc})
+    imgcolortw:Play()
+    bgctw:Play()
 end
 
-local function IARMZP_fake_script() -- Fake Script: StarterGui.Bar.Blur.BarFrame.Home.LocalScript
-    local script = Instance.new("LocalScript")
-    script.Name = "LocalScript"
-    script.Parent = Converted["_Home"]
-
-    local home = script.Parent
-    local homegui = script.Parent.Parent.Parent.Home
-    local toggled = false
-    
-    home.MouseButton1Click:Connect(function()
-        toggled = not toggled
-        if toggled then
-            for _, child in ipairs(homegui:GetChildren()) do
-                child.Visible = true
-            end
-            tweenColorChange(home, Color3.fromRGB(42, 42, 42), Color3.fromRGB(255, 255, 255))
-        else
-            for _, child in ipairs(homegui:GetChildren()) do
-                child.Visible = false
-            end
-            tweenColorChange(home, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
+function tws(element, fin, duration)
+    if fin then
+        element.Visible = true
+    end
+    local ti = TweenInfo.new(duration, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut)
+    local trg = {}
+    trg.BackgroundTransparency = fin and 0 or 1  
+    local tween = game:GetService("TweenService"):Create(element, ti, trg)
+    tween:Play()
+    tween.Completed:Connect(function()
+        if not fin then
+            element.Visible = false
         end
     end)
 end
 
-local function KNOF_fake_script() -- Fake Script: StarterGui.Bar.Blur.BarFrame.LPLR.LocalScript
+local function IARMZP_fake_script() 
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_Home"]
+    local home = script.Parent
+    local homegui = script.Parent.Parent.Parent.Home
+    local toggled = false
+    home.MouseButton1Click:Connect(function()
+        toggled = not toggled
+        if toggled then
+            for _, child in ipairs(homegui:GetChildren()) do
+                tws(child, true, 0.5)  
+            end
+            tcc(home, Color3.fromRGB(42, 42, 42), Color3.fromRGB(255, 255, 255))
+        else
+            for _, child in ipairs(homegui:GetChildren()) do
+                tws(child, false, 0.5) 
+            end
+            tcc(home, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
+        end
+    end)
+end
+
+local function KNOF_fake_script() 
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_LPLR"]
@@ -910,26 +923,25 @@ local function KNOF_fake_script() -- Fake Script: StarterGui.Bar.Blur.BarFrame.L
     local scripthub = script.Parent.Parent.ScriptHub
     local scripthubFR = script.Parent.Parent.Parent.ScriptHubFR
     shared.toggled = false 
-    lplr.MouseButton1Click:Connect(function() 
-        shared.toggled = not shared.toggled 
-        if shared.toggled then 
-            lplrthings.Visible = true 
-            exec.Visible = false 
-            scripthubFR.Visible = false 
-            
-            tweenColorChange(execbutton, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
-            tweenColorChange(scripthub, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
-            
-            shared.extoggled = false
-            shared.sctoggled = false 
-            tweenColorChange(lplr, Color3.fromRGB(42, 42, 42), Color3.fromRGB(255, 255, 255))
-        else 
-            lplrthings.Visible = false 
-            tweenColorChange(lplr, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
-        end
-    end)
+	lplr.MouseButton1Click:Connect(function() 
+		shared.toggled = not shared.toggled 
+		if shared.toggled then 
+			tws(lplrthings, true, 0.5)  
+			tws(exec, false, 0.5)       
+			tws(scripthubFR, false, 0.5) 
+			tcc(execbutton, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
+			tcc(scripthub, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
+			shared.extoggled = false
+			shared.sctoggled = false 
+			tcc(lplr, Color3.fromRGB(42, 42, 42), Color3.fromRGB(255, 255, 255))
+		else 
+			tws(lplrthings, false, 0.5) 
+			tcc(lplr, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
+		end
+	end)
+
 end
-local function VRNOG_fake_script() -- Fake Script: StarterGui.Bar.Blur.BarFrame.Executor.LocalScript
+local function VRNOG_fake_script() 
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Executor"]
@@ -948,27 +960,26 @@ local function VRNOG_fake_script() -- Fake Script: StarterGui.Bar.Blur.BarFrame.
     local scripthubn = exec.Parent.ScriptHub
     local scripthub = exec.Parent.Parent.ScriptHubFR
     shared.extoggled = false 
-    exec.MouseButton1Click:Connect(function() 
-        shared.extoggled = not shared.extoggled 
-        if shared.extoggled then 
-            executor.Visible = true 
-            lplr.Visible = false
-            scripthub.Visible = false 
-            
-            tweenColorChange(lplrbutton, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
-            tweenColorChange(scripthubn, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
-            
-            shared.toggled = false
-            shared.sctoggled = false 
-            tweenColorChange(exec, Color3.fromRGB(42, 42, 42), Color3.fromRGB(255, 255, 255))
-        else 
-            executor.Visible = false 
-            tweenColorChange(exec, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
-        end
-    end)
+	exec.MouseButton1Click:Connect(function() 
+		shared.extoggled = not shared.extoggled 
+		if shared.extoggled then 
+			tws(executor, true, 0.5)    
+			tws(lplr, false, 0.5)       
+			tws(scripthub, false, 0.5)  
+			tcc(lplrbutton, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
+			tcc(scripthubn, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
+			shared.toggled = false
+			shared.sctoggled = false 
+			tcc(exec, Color3.fromRGB(42, 42, 42), Color3.fromRGB(255, 255, 255))
+		else 
+			tws(executor, false, 0.5) 
+			tcc(exec, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
+		end
+	end)
+
 end
 
-local function KKOGF_fake_script() -- Fake Script: StarterGui.Bar.Blur.BarFrame.ScriptHub.LocalScript
+local function KKOGF_fake_script() 
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_ScriptHub"]
@@ -987,27 +998,28 @@ local function KKOGF_fake_script() -- Fake Script: StarterGui.Bar.Blur.BarFrame.
     local exec = scripthub.Parent.Parent.ExecutorFR
     local execbutton = scripthub.Parent.Executor 
     shared.sctoggled = false 
-    scripthub.MouseButton1Click:Connect(function() 
-        shared.sctoggled = not shared.sctoggled 
-        if shared.sctoggled then 
-            scripthubf.Visible = true 
-            lplr.Visible = false
-            exec.Visible = false 
-            
-            tweenColorChange(lplrbutton, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
-            tweenColorChange(execbutton, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
-            
-            shared.toggled = false
-            shared.extoggled = false 
-            tweenColorChange(scripthub, Color3.fromRGB(42, 42, 42), Color3.fromRGB(255, 255, 255))
-        else 
-            scripthubf.Visible = false 
-            tweenColorChange(scripthub, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
-        end
-    end)
+	scripthub.MouseButton1Click:Connect(function() 
+		shared.sctoggled = not shared.sctoggled 
+		if shared.sctoggled then 
+			tws(scripthubf, true, 0.5)  
+			tws(lplr, false, 0.5)       
+			tws(exec, false, 0.5)       
+
+			tcc(lplrbutton, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
+			tcc(execbutton, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
+
+			shared.toggled = false
+			shared.extoggled = false 
+			tcc(scripthub, Color3.fromRGB(42, 42, 42), Color3.fromRGB(255, 255, 255))
+		else 
+			tws(scripthubf, false, 0.5) 
+			tcc(scripthub, Color3.fromRGB(255, 255, 255), Color3.fromRGB(42, 42, 42))
+		end
+	end)
+
 end
 
-local function XBXFNXA_fake_script() -- Fake Script: StarterGui.Bar.Blur.Home.Player.ImageLabel.LocalScript
+local function XBXFNXA_fake_script() 
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_ImageLabel"]
@@ -1025,7 +1037,7 @@ local function XBXFNXA_fake_script() -- Fake Script: StarterGui.Bar.Blur.Home.Pl
 		img.Image = "rbxthumb://type=AvatarHeadShot&w=420&h=420&id="..userid
 	end
 end
-local function MRFND_fake_script() -- Fake Script: StarterGui.Bar.Blur.Home.Player.Display.LocalScript
+local function MRFND_fake_script() 
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Display"]
@@ -1042,9 +1054,9 @@ local function MRFND_fake_script() -- Fake Script: StarterGui.Bar.Blur.Home.Play
 	while wait() do 
 		user.Text = plr
 	end
-	
+
 end
-local function FUXUOXV_fake_script() -- Fake Script: StarterGui.Bar.Blur.Home.Player.User.LocalScript
+local function FUXUOXV_fake_script() 
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_User"]
@@ -1061,9 +1073,9 @@ local function FUXUOXV_fake_script() -- Fake Script: StarterGui.Bar.Blur.Home.Pl
 	while wait() do 
 		user.Text = plr
 	end
-	
+
 end
-local function UTTJLHY_fake_script() -- Fake Script: StarterGui.Bar.Blur.Home.UiKeybind.TextBox.LocalScript
+local function UTTJLHY_fake_script() 
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_TextBox"]
@@ -1077,8 +1089,8 @@ local function UTTJLHY_fake_script() -- Fake Script: StarterGui.Bar.Blur.Home.Ui
     end
 	local keybind = script.Parent
 	local uis = game:GetService("UserInputService")
-	
-	local function uppercase()
+
+	function uppercase()
 		if keybind:IsFocused() then
 			if #keybind.Text > 2 then
 				keybind.Text = string.sub(keybind.Text, 1, 1)
@@ -1087,8 +1099,8 @@ local function UTTJLHY_fake_script() -- Fake Script: StarterGui.Bar.Blur.Home.Ui
 			keybind:ReleaseFocus()
 		end
 	end
-	
-	local function updatetxtboxyes(input)
+
+	function updatetxtboxyes(input)
 		if keybind:IsFocused() then
 			if input.KeyCode == Enum.KeyCode.LeftShift then
 				keybind.Text = "LS"
@@ -1101,14 +1113,14 @@ local function UTTJLHY_fake_script() -- Fake Script: StarterGui.Bar.Blur.Home.Ui
 			end
 		end
 	end
-	
+
 	keybind:GetPropertyChangedSignal("Text"):Connect(uppercase)
 	uis.InputBegan:Connect(function(input)
 		updatetxtboxyes(input)
 	end)
-	
+
 end
-local function XUYJMN_fake_script() -- Fake Script: StarterGui.Bar.Blur.LocalScript
+local function XUYJMN_fake_script() 
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Blur"]
@@ -1122,9 +1134,9 @@ local function XUYJMN_fake_script() -- Fake Script: StarterGui.Bar.Blur.LocalScr
     end
 	local textBox = script.Parent.Home.UiKeybind.TextBox
 	local uis = game:GetService("UserInputService")
-	
-	local function getKeyCodeFromChar(char)
-		local keyMap = {
+
+	local function keyshit(char)
+		local keysmap = {
 			a = Enum.KeyCode.A,
 			b = Enum.KeyCode.B,
 			c = Enum.KeyCode.C,
@@ -1156,20 +1168,20 @@ local function XUYJMN_fake_script() -- Fake Script: StarterGui.Bar.Blur.LocalScr
 			la = Enum.KeyCode.LeftAlt,
 			ra = Enum.KeyCode.RightAlt
 		}
-		return keyMap[char:lower()] or Enum.KeyCode.K
+		return keysmap[char:lower()] or Enum.KeyCode.K
 	end
-	local currentKeybind = Enum.KeyCode.K
-	local function updateKeybind()
+	local currentbind = Enum.KeyCode.K
+	local function bindupd()
 		local text = textBox.Text
-		currentKeybind = getKeyCodeFromChar(text)
+		currentbind = keyshit(text)
 	end
-	
-	updateKeybind()
-	
-	textBox:GetPropertyChangedSignal("Text"):Connect(updateKeybind)
-	
+
+	bindupd()
+
+	textBox:GetPropertyChangedSignal("Text"):Connect(bindupd)
+
 	uis.InputBegan:Connect(function(input)
-		if input.KeyCode == currentKeybind then
+		if input.KeyCode == currentbind then
 			if script.Parent.Parent.Enabled then 
 				script.Parent.Parent.Enabled = false 
 			else 
@@ -1177,156 +1189,147 @@ local function XUYJMN_fake_script() -- Fake Script: StarterGui.Bar.Blur.LocalScr
 			end
 		end
 	end)
-	
+
 end
 local function WWARFJ_fake_script()
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_slidermain"]
-    
+
     local slider = script.Parent.Parent
-    local fillThing = slider:FindFirstChild("FillThing")
-    local slideMain = script.Parent
+    local fillthing = slider:FindFirstChild("FillThing")
+    local slideman = script.Parent
     local mouse = game.Players.LocalPlayer:GetMouse()
     local plr = game.Players.LocalPlayer.Name
     local slidertext = script.Parent.Parent.Val
-    
-    local UserInputService = game:GetService("UserInputService")
-    
-    local sliderSize = slider.AbsoluteSize
-    local sliderPos = slider.AbsolutePosition
+
+    local uis = game:GetService("UserInputService")
+
+    local ssiz = slider.AbsoluteSize
+    local sliderpos = slider.AbsolutePosition
     local dragging = false
-    
-    local minValue = 16
-    local maxValue = 100
-    
-    local function updateFill(positionX)
-        local clampedX = math.clamp(positionX, sliderPos.X, sliderPos.X + sliderSize.X)
-        local fillWidth = clampedX - sliderPos.X
-        fillThing.Size = UDim2.new(0, fillWidth, 1, 0)
-        local sliderValue = minValue + (fillWidth / sliderSize.X) * (maxValue - minValue)
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = sliderValue
-        slidertext.Text = "WalkSpeed: "..math.floor(sliderValue)
+
+    local function fillshitup(positionX)
+        local clampedX = math.clamp(positionX, sliderpos.X, sliderpos.X + ssiz.X)
+        local width = clampedX - sliderpos.X
+        fillthing.Size = UDim2.new(0, width, 1, 0)
+        local vals = 16 + (width / ssiz.X) * (100 - 16)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = vals
+        slidertext.Text = "WalkSpeed: "..math.floor(vals)
     end
-    
-    slideMain.MouseButton1Down:Connect(function()
+
+    slideman.MouseButton1Down:Connect(function()
         dragging = true
     end)
-    
-    UserInputService.InputEnded:Connect(function(input)
+
+    uis.InputEnded:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 then
             dragging = false
         end
     end)
-    
+
     mouse.Move:Connect(function()
         if dragging then
-            updateFill(mouse.X)
+            fillshitup(mouse.X)
         end
     end)
-    
-    updateFill(slideMain.Position.X.Offset + sliderPos.X)
+
+    fillshitup(slideman.Position.X.Offset + sliderpos.X)
 end
 
 local function EFXZOZ_fake_script()
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_slidermain1"]
-    
+
     local slider = script.Parent.Parent
-    local fillThing = slider:FindFirstChild("FillThing")
-    local slideMain = script.Parent
+    local fillthing = slider:FindFirstChild("FillThing")
+    local slideman = script.Parent
     local mouse = game.Players.LocalPlayer:GetMouse()
     local plr = game.Players.LocalPlayer.Name
     local slidertext = script.Parent.Parent.Val
-    
-    local UserInputService = game:GetService("UserInputService")
-    
-    local sliderSize = slider.AbsoluteSize
-    local sliderPos = slider.AbsolutePosition
+
+    local uis = game:GetService("UserInputService")
+
+    local ssiz = slider.AbsoluteSize
+    local sliderpos = slider.AbsolutePosition
     local dragging = false
-    
-    local minValue = 50
-    local maxValue = 150
-    
-    local function updateFill(positionX)
-        local clampedX = math.clamp(positionX, sliderPos.X, sliderPos.X + sliderSize.X)
-        local fillWidth = clampedX - sliderPos.X
-        fillThing.Size = UDim2.new(0, fillWidth, 1, 0)
-        local sliderValue = minValue + (fillWidth / sliderSize.X) * (maxValue - minValue)
-        game.Players.LocalPlayer.Character.Humanoid.JumpPower = sliderValue
-        slidertext.Text = "JumpPower: "..math.floor(sliderValue)
+
+    local function fillshitup(positionX)
+        local clampedX = math.clamp(positionX, sliderpos.X, sliderpos.X + ssiz.X)
+        local width = clampedX - sliderpos.X
+        fillthing.Size = UDim2.new(0, width, 1, 0)
+        local vals = 50 + (width / ssiz.X) * (150 - 50)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = vals
+        slidertext.Text = "JumpPower: "..math.floor(vals)
     end
-    
-    slideMain.MouseButton1Down:Connect(function()
+
+    slideman.MouseButton1Down:Connect(function()
         dragging = true
     end)
-    
-    UserInputService.InputEnded:Connect(function(input)
+
+    uis.InputEnded:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 then
             dragging = false
         end
     end)
-    
+
     mouse.Move:Connect(function()
         if dragging then
-            updateFill(mouse.X)
+            fillshitup(mouse.X)
         end
     end)
-    
-    updateFill(slideMain.Position.X.Offset + sliderPos.X)
+
+    fillshitup(slideman.Position.X.Offset + sliderpos.X)
 end
 
 local function SWUB_fake_script()
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_slidermain2"]
-    
+
     local slider = script.Parent.Parent
-    local fillThing = slider:FindFirstChild("FillThing")
-    local slideMain = script.Parent
+    local fillthing = slider:FindFirstChild("FillThing")
+    local slideman = script.Parent
     local mouse = game.Players.LocalPlayer:GetMouse()
     local plr = game.Players.LocalPlayer.Name
     local slidertext = script.Parent.Parent.Val
-    
-    local UserInputService = game:GetService("UserInputService")
-    
-    local sliderSize = slider.AbsoluteSize
-    local sliderPos = slider.AbsolutePosition
+
+    local uis = game:GetService("UserInputService")
+
+    local ssiz = slider.AbsoluteSize
+    local sliderpos = slider.AbsolutePosition
     local dragging = false
-    
-    local minValue = 70
-    local maxValue = 120
-    
-    local function updateFill(positionX)
-        local clampedX = math.clamp(positionX, sliderPos.X, sliderPos.X + sliderSize.X)
-        local fillWidth = clampedX - sliderPos.X
-        fillThing.Size = UDim2.new(0, fillWidth, 1, 0)
-        local sliderValue = minValue + (fillWidth / sliderSize.X) * (maxValue - minValue)
-        game.Workspace.Camera.FieldOfView = sliderValue
-        slidertext.Text = "FOV: "..math.floor(sliderValue)
+
+    local function fillshitup(positionX)
+        local clampedX = math.clamp(positionX, sliderpos.X, sliderpos.X + ssiz.X)
+        local width = clampedX - sliderpos.X
+        fillthing.Size = UDim2.new(0, width, 1, 0)
+        local vals = 70 + (width / ssiz.X) * (120 - 70)
+        game.Workspace.Camera.FieldOfView = vals
+        slidertext.Text = "FOV: "..math.floor(vals)
     end
-    
-    slideMain.MouseButton1Down:Connect(function()
+
+    slideman.MouseButton1Down:Connect(function()
         dragging = true
     end)
-    
-    UserInputService.InputEnded:Connect(function(input)
+
+    uis.InputEnded:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 then
             dragging = false
         end
     end)
-    
+
     mouse.Move:Connect(function()
         if dragging then
-            updateFill(mouse.X)
+            fillshitup(mouse.X)
         end
     end)
-    
-    updateFill(slideMain.Position.X.Offset + sliderPos.X)
+
+    fillshitup(slideman.Position.X.Offset + sliderpos.X)
 end
 
-local function BSQQK_fake_script() -- Fake Script: StarterGui.Bar.Blur.ExecutorFR.Execute.LocalScript
+local function BSQQK_fake_script() 
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Execute"]
@@ -1340,12 +1343,12 @@ local function BSQQK_fake_script() -- Fake Script: StarterGui.Bar.Blur.ExecutorF
     end
 	local execute = script.Parent.Parent.TextBox
 	local exec = script.Parent 
-	
+
 	exec.MouseButton1Click:Connect(function()
 		loadstring(execute.Text)()
 	end)
 end
-local function PLWSDQ_fake_script() -- Fake Script: StarterGui.Bar.Blur.ExecutorFR.Clear.LocalScript
+local function PLWSDQ_fake_script() 
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Clear"]
@@ -1359,12 +1362,12 @@ local function PLWSDQ_fake_script() -- Fake Script: StarterGui.Bar.Blur.Executor
     end
 	local textbox = script.Parent.Parent.TextBox
 	local clear = script.Parent 
-	
+
 	clear.MouseButton1Click:Connect(function()
 		textbox.Text = ""
 	end)
 end
-local function BYEUD_fake_script() -- Fake Script: StarterGui.Bar.Blur.ScriptHubFR.VapeV4.Execute.LocalScript
+local function BYEUD_fake_script() 
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Execute1"]
@@ -1381,7 +1384,7 @@ local function BYEUD_fake_script() -- Fake Script: StarterGui.Bar.Blur.ScriptHub
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
 	end)
 end
-local function TUPTJBR_fake_script() -- Fake Script: StarterGui.Bar.Blur.ScriptHubFR.Dex.Execute.LocalScript
+local function TUPTJBR_fake_script() 
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Execute2"]
@@ -1415,4 +1418,3 @@ coroutine.wrap(BSQQK_fake_script)()
 coroutine.wrap(PLWSDQ_fake_script)()
 coroutine.wrap(BYEUD_fake_script)()
 coroutine.wrap(TUPTJBR_fake_script)()
--- internal ui end -- 
