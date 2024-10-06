@@ -1,0 +1,995 @@
+if game:GetService("CoreGui"):FindFirstChild("SaladINTERNAL") then return end 
+local originalfov = workspace.CurrentCamera.FieldOfView
+local sound = Instance.new("Sound")
+sound.Parent = game.workspace	
+sound.SoundId = "rbxassetid://9039585892"
+sound.Name = "Notification"
+sound.Volume = 2
+sound:Play()
+if workspace.CurrentCamera.FieldOfView <= 71 and workspace.CurrentCamera.FieldOfView >= 70  then
+	local ti = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
+	local tween = game:GetService("TweenService"):Create(workspace.CurrentCamera, ti, {FieldOfView = 67})
+	tween:Play()
+	task.wait(0.25)
+	local ti = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
+	local tween = game:GetService("TweenService"):Create(workspace.CurrentCamera, ti, {FieldOfView = 64})
+	tween:Play() 
+    task.wait(0.25)
+    local ti = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
+	local tween = game:GetService("TweenService"):Create(workspace.CurrentCamera, ti, {FieldOfView = originalfov})
+	tween:Play()
+end
+local Converted = {
+	["_SaladINTERNAL"] = Instance.new("ScreenGui");
+	["_DarkShit"] = Instance.new("Frame");
+	["_PanelMAIN"] = Instance.new("Frame");
+	["_UICorner"] = Instance.new("UICorner");
+	["_DropShadowHolder"] = Instance.new("Frame");
+	["_DropShadow"] = Instance.new("ImageLabel");
+	["_CodeExecution"] = Instance.new("ImageButton");
+	["_UICorner1"] = Instance.new("UICorner");
+	["_LocalScript"] = Instance.new("LocalScript");
+	["_LocalPlayer"] = Instance.new("ImageButton");
+	["_UICorner2"] = Instance.new("UICorner");
+	["_LocalScript1"] = Instance.new("LocalScript");
+	["_DevConsole"] = Instance.new("ImageButton");
+	["_UICorner3"] = Instance.new("UICorner");
+	["_LocalScript2"] = Instance.new("LocalScript");
+	["_BuiltInScripts"] = Instance.new("ImageButton");
+	["_UICorner4"] = Instance.new("UICorner");
+	["_LocalScript3"] = Instance.new("LocalScript");
+	["_BuildInfo"] = Instance.new("ImageButton");
+	["_UICorner5"] = Instance.new("UICorner");
+	["_LocalScript4"] = Instance.new("LocalScript");
+	["_PCStat"] = Instance.new("ImageButton");
+	["_UICorner6"] = Instance.new("UICorner");
+	["_LocalScript5"] = Instance.new("LocalScript");
+	["_Tabs"] = Instance.new("Folder");
+	["_Coding"] = Instance.new("Frame");
+	["_UICorner7"] = Instance.new("UICorner");
+	["_UIStroke"] = Instance.new("UIStroke");
+	["_DropShadowHolder1"] = Instance.new("Frame");
+	["_DropShadow1"] = Instance.new("ImageLabel");
+	["_LineUhUH"] = Instance.new("Frame");
+	["_DragBlah"] = Instance.new("LocalScript");
+	["_TextLabel"] = Instance.new("TextLabel");
+	["_TextBox"] = Instance.new("TextBox");
+	["_UICorner8"] = Instance.new("UICorner");
+	["_LocalScript6"] = Instance.new("LocalScript");
+	["_ImageButton"] = Instance.new("ImageButton");
+	["_UICorner9"] = Instance.new("UICorner");
+	["_UIStroke1"] = Instance.new("UIStroke");
+	["_DropShadowHolder2"] = Instance.new("Frame");
+	["_DropShadow2"] = Instance.new("ImageLabel");
+	["_LocalScript7"] = Instance.new("LocalScript");
+	["_ImageButton1"] = Instance.new("ImageButton");
+	["_UICorner10"] = Instance.new("UICorner");
+	["_UIStroke2"] = Instance.new("UIStroke");
+	["_DropShadowHolder3"] = Instance.new("Frame");
+	["_DropShadow3"] = Instance.new("ImageLabel");
+	["_LocalScript8"] = Instance.new("LocalScript");
+	["_UIToggle"] = Instance.new("LocalScript");
+}
+
+-- Properties:
+
+Converted["_SaladINTERNAL"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Converted["_SaladINTERNAL"].Name = "SaladINTERNAL"
+Converted["_SaladINTERNAL"].Parent = game:GetService("CoreGui")
+
+Converted["_DarkShit"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_DarkShit"].BackgroundTransparency = 0.4000000059604645
+Converted["_DarkShit"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_DarkShit"].BorderSizePixel = 0
+Converted["_DarkShit"].Position = UDim2.new(0, 0, -0.173139155, 0)
+Converted["_DarkShit"].Size = UDim2.new(1.02018631, 0, 1.54207122, 0)
+Converted["_DarkShit"].Name = "DarkShit"
+Converted["_DarkShit"].Parent = Converted["_SaladINTERNAL"]
+
+Converted["_PanelMAIN"].BackgroundColor3 = Color3.fromRGB(44.000001177191734, 44.000001177191734, 44.000001177191734)
+Converted["_PanelMAIN"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_PanelMAIN"].BorderSizePixel = 0
+Converted["_PanelMAIN"].Position = UDim2.new(-0.013913705, 0, 0.281407028, 0)
+Converted["_PanelMAIN"].Size = UDim2.new(0.0494672768, 0, 0.268906176, 0)
+Converted["_PanelMAIN"].Name = "PanelMAIN"
+Converted["_PanelMAIN"].Parent = Converted["_DarkShit"]
+
+Converted["_UICorner"].Parent = Converted["_PanelMAIN"]
+
+Converted["_DropShadowHolder"].BackgroundTransparency = 1
+Converted["_DropShadowHolder"].BorderSizePixel = 0
+Converted["_DropShadowHolder"].Size = UDim2.new(1, 0, 1, 0)
+Converted["_DropShadowHolder"].ZIndex = 0
+Converted["_DropShadowHolder"].Name = "DropShadowHolder"
+Converted["_DropShadowHolder"].Parent = Converted["_PanelMAIN"]
+
+Converted["_DropShadow"].Image = "rbxassetid://6014261993"
+Converted["_DropShadow"].ImageColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_DropShadow"].ImageTransparency = 0.5
+Converted["_DropShadow"].ScaleType = Enum.ScaleType.Slice
+Converted["_DropShadow"].SliceCenter = Rect.new(49, 49, 450, 450)
+Converted["_DropShadow"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_DropShadow"].BackgroundTransparency = 1
+Converted["_DropShadow"].BorderSizePixel = 0
+Converted["_DropShadow"].Position = UDim2.new(0.496201038, 0, 0.498557121, 0)
+Converted["_DropShadow"].Size = UDim2.new(1, 47, 1.01491117, 47)
+Converted["_DropShadow"].ZIndex = 0
+Converted["_DropShadow"].Name = "DropShadow"
+Converted["_DropShadow"].Parent = Converted["_DropShadowHolder"]
+
+Converted["_CodeExecution"].Image = "rbxassetid://6022668955"
+Converted["_CodeExecution"].ImageColor3 = Color3.fromRGB(200.00000327825546, 200.00000327825546, 200.00000327825546)
+Converted["_CodeExecution"].BackgroundColor3 = Color3.fromRGB(40.00000141561031, 40.00000141561031, 40.00000141561031)
+Converted["_CodeExecution"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_CodeExecution"].BorderSizePixel = 0
+Converted["_CodeExecution"].Position = UDim2.new(0.335384667, 0, 0.0248647016, 0)
+Converted["_CodeExecution"].Size = UDim2.new(0.537999988, 0, 0.136000007, 0)
+Converted["_CodeExecution"].Name = "CodeExecution"
+Converted["_CodeExecution"].Parent = Converted["_PanelMAIN"]
+
+Converted["_UICorner1"].Parent = Converted["_CodeExecution"]
+
+Converted["_LocalPlayer"].Image = "rbxassetid://6034287594"
+Converted["_LocalPlayer"].ImageColor3 = Color3.fromRGB(200.00000327825546, 200.00000327825546, 200.00000327825546)
+Converted["_LocalPlayer"].BackgroundColor3 = Color3.fromRGB(40.00000141561031, 40.00000141561031, 40.00000141561031)
+Converted["_LocalPlayer"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_LocalPlayer"].BorderSizePixel = 0
+Converted["_LocalPlayer"].Position = UDim2.new(0.335384667, 0, 0.182955086, 0)
+Converted["_LocalPlayer"].Size = UDim2.new(0.537999988, 0, 0.136000007, 0)
+Converted["_LocalPlayer"].Name = "LocalPlayer"
+Converted["_LocalPlayer"].Parent = Converted["_PanelMAIN"]
+
+Converted["_UICorner2"].Parent = Converted["_LocalPlayer"]
+
+Converted["_DevConsole"].Image = "http://www.roblox.com/asset/?id=121337010136432"
+Converted["_DevConsole"].ImageColor3 = Color3.fromRGB(200.00000327825546, 200.00000327825546, 200.00000327825546)
+Converted["_DevConsole"].BackgroundColor3 = Color3.fromRGB(40.00000141561031, 40.00000141561031, 40.00000141561031)
+Converted["_DevConsole"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_DevConsole"].BorderSizePixel = 0
+Converted["_DevConsole"].Position = UDim2.new(0.335384667, 0, 0.501114726, 0)
+Converted["_DevConsole"].Size = UDim2.new(0.537999988, 0, 0.136000007, 0)
+Converted["_DevConsole"].Name = "DevConsole"
+Converted["_DevConsole"].Parent = Converted["_PanelMAIN"]
+
+Converted["_UICorner3"].Parent = Converted["_DevConsole"]
+
+Converted["_BuiltInScripts"].Image = "http://www.roblox.com/asset/?id=97655786557335"
+Converted["_BuiltInScripts"].ImageColor3 = Color3.fromRGB(200.00000327825546, 200.00000327825546, 200.00000327825546)
+Converted["_BuiltInScripts"].BackgroundColor3 = Color3.fromRGB(40.00000141561031, 40.00000141561031, 40.00000141561031)
+Converted["_BuiltInScripts"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_BuiltInScripts"].BorderSizePixel = 0
+Converted["_BuiltInScripts"].Position = UDim2.new(0.335384667, 0, 0.340252578, 0)
+Converted["_BuiltInScripts"].Size = UDim2.new(0.537999988, 0, 0.136000007, 0)
+Converted["_BuiltInScripts"].Name = "BuiltInScripts"
+Converted["_BuiltInScripts"].Parent = Converted["_PanelMAIN"]
+
+Converted["_UICorner4"].Parent = Converted["_BuiltInScripts"]
+
+Converted["_BuildInfo"].Image = "rbxassetid://6026568210"
+Converted["_BuildInfo"].ImageColor3 = Color3.fromRGB(200.00000327825546, 200.00000327825546, 200.00000327825546)
+Converted["_BuildInfo"].BackgroundColor3 = Color3.fromRGB(40.00000141561031, 40.00000141561031, 40.00000141561031)
+Converted["_BuildInfo"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_BuildInfo"].BorderSizePixel = 0
+Converted["_BuildInfo"].Position = UDim2.new(0.335384667, 0, 0.824089348, 0)
+Converted["_BuildInfo"].Size = UDim2.new(0.537999988, 0, 0.135902151, 0)
+Converted["_BuildInfo"].Name = "BuildInfo"
+Converted["_BuildInfo"].Parent = Converted["_PanelMAIN"]
+
+Converted["_UICorner5"].Parent = Converted["_BuildInfo"]
+
+Converted["_PCStat"].Image = "rbxassetid://6035030079"
+Converted["_PCStat"].ImageColor3 = Color3.fromRGB(200.00000327825546, 200.00000327825546, 200.00000327825546)
+Converted["_PCStat"].BackgroundColor3 = Color3.fromRGB(40.00000141561031, 40.00000141561031, 40.00000141561031)
+Converted["_PCStat"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_PCStat"].BorderSizePixel = 0
+Converted["_PCStat"].Position = UDim2.new(0.335384667, 0, 0.657092333, 0)
+Converted["_PCStat"].Size = UDim2.new(0.537999988, 0, 0.136000007, 0)
+Converted["_PCStat"].Name = "PCStat"
+Converted["_PCStat"].Parent = Converted["_PanelMAIN"]
+
+Converted["_UICorner6"].Parent = Converted["_PCStat"]
+
+Converted["_Tabs"].Name = "Tabs"
+Converted["_Tabs"].Parent = Converted["_PanelMAIN"]
+
+Converted["_Coding"].BackgroundColor3 = Color3.fromRGB(47.0000009983778, 47.0000009983778, 47.0000009983778)
+Converted["_Coding"].BackgroundTransparency = 1
+Converted["_Coding"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Coding"].BorderSizePixel = 0
+Converted["_Coding"].Position = UDim2.new(5.55384636, 0, -0.230228111, 0)
+Converted["_Coding"].Size = UDim2.new(9.26153851, 0, 1.4516077, 0)
+Converted["_Coding"].Visible = false
+Converted["_Coding"].Name = "Coding"
+Converted["_Coding"].Parent = Converted["_Tabs"]
+
+Converted["_UICorner7"].Parent = Converted["_Coding"]
+
+Converted["_UIStroke"].Color = Color3.fromRGB(100.00000163912773, 100.00000163912773, 100.00000163912773)
+Converted["_UIStroke"].Parent = Converted["_Coding"]
+
+Converted["_DropShadowHolder1"].BackgroundTransparency = 1
+Converted["_DropShadowHolder1"].BorderSizePixel = 0
+Converted["_DropShadowHolder1"].Size = UDim2.new(1, 0, 1, 0)
+Converted["_DropShadowHolder1"].ZIndex = 0
+Converted["_DropShadowHolder1"].Name = "DropShadowHolder"
+Converted["_DropShadowHolder1"].Parent = Converted["_Coding"]
+
+Converted["_DropShadow1"].Image = "rbxassetid://6014261993"
+Converted["_DropShadow1"].ImageColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_DropShadow1"].ImageTransparency = 0.5
+Converted["_DropShadow1"].ScaleType = Enum.ScaleType.Slice
+Converted["_DropShadow1"].SliceCenter = Rect.new(49, 49, 450, 450)
+Converted["_DropShadow1"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_DropShadow1"].BackgroundTransparency = 1
+Converted["_DropShadow1"].BorderSizePixel = 0
+Converted["_DropShadow1"].Position = UDim2.new(0.5, 0, 0.5, 0)
+Converted["_DropShadow1"].Size = UDim2.new(1, 47, 1, 47)
+Converted["_DropShadow1"].ZIndex = 0
+Converted["_DropShadow1"].Name = "DropShadow"
+Converted["_DropShadow1"].Parent = Converted["_DropShadowHolder1"]
+
+Converted["_LineUhUH"].BackgroundColor3 = Color3.fromRGB(80.00000283122063, 80.00000283122063, 80.00000283122063)
+Converted["_LineUhUH"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_LineUhUH"].BorderSizePixel = 0
+Converted["_LineUhUH"].Position = UDim2.new(0, 0, 0.123655915, 0)
+Converted["_LineUhUH"].Size = UDim2.new(1, 0, 0.00268817204, 0)
+Converted["_LineUhUH"].Name = "LineUhUH"
+Converted["_LineUhUH"].Parent = Converted["_Coding"]
+
+Converted["_TextLabel"].Font = Enum.Font.SourceSansBold
+Converted["_TextLabel"].Text = "Executor "
+Converted["_TextLabel"].TextColor3 = Color3.fromRGB(150.0000062584877, 150.0000062584877, 150.0000062584877)
+Converted["_TextLabel"].TextSize = 30
+Converted["_TextLabel"].TextWrapped = true
+Converted["_TextLabel"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_TextLabel"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_TextLabel"].BackgroundTransparency = 1
+Converted["_TextLabel"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_TextLabel"].BorderSizePixel = 0
+Converted["_TextLabel"].Position = UDim2.new(0.0215946846, 0, 0, 0)
+Converted["_TextLabel"].Size = UDim2.new(0.332225919, 0, 0.123655915, 0)
+Converted["_TextLabel"].Parent = Converted["_Coding"]
+
+Converted["_TextBox"].ClearTextOnFocus = false
+Converted["_TextBox"].CursorPosition = -1
+Converted["_TextBox"].Font = Enum.Font.SourceSans
+Converted["_TextBox"].MultiLine = true
+Converted["_TextBox"].PlaceholderColor3 = Color3.fromRGB(178.00000458955765, 178.00000458955765, 178.00000458955765)
+Converted["_TextBox"].PlaceholderText = "-- Paste your script here"
+Converted["_TextBox"].Text = ""
+Converted["_TextBox"].TextColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_TextBox"].TextSize = 20
+Converted["_TextBox"].TextWrapped = true
+Converted["_TextBox"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_TextBox"].TextYAlignment = Enum.TextYAlignment.Top
+Converted["_TextBox"].BackgroundColor3 = Color3.fromRGB(40.00000141561031, 40.00000141561031, 40.00000141561031)
+Converted["_TextBox"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_TextBox"].BorderSizePixel = 0
+Converted["_TextBox"].Position = UDim2.new(0.018272426, 0, 0.158602148, 0)
+Converted["_TextBox"].Size = UDim2.new(0.961794019, 0, 0.811827958, 0)
+Converted["_TextBox"].Parent = Converted["_Coding"]
+
+Converted["_UICorner8"].Parent = Converted["_TextBox"]
+
+Converted["_ImageButton"].Image = "http://www.roblox.com/asset/?id=108697381919259"
+Converted["_ImageButton"].BackgroundColor3 = Color3.fromRGB(47.0000009983778, 47.0000009983778, 47.0000009983778)
+Converted["_ImageButton"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_ImageButton"].BorderSizePixel = 0
+Converted["_ImageButton"].Position = UDim2.new(1.02657807, 0, 0.338709682, 0)
+Converted["_ImageButton"].Size = UDim2.new(0.0664451793, 0, 0.112903222, 0)
+Converted["_ImageButton"].Parent = Converted["_Coding"]
+
+Converted["_UICorner9"].Parent = Converted["_ImageButton"]
+
+Converted["_UIStroke1"].Color = Color3.fromRGB(100.00000163912773, 100.00000163912773, 100.00000163912773)
+Converted["_UIStroke1"].Parent = Converted["_ImageButton"]
+
+Converted["_DropShadowHolder2"].BackgroundTransparency = 1
+Converted["_DropShadowHolder2"].BorderSizePixel = 0
+Converted["_DropShadowHolder2"].Size = UDim2.new(1, 0, 1, 0)
+Converted["_DropShadowHolder2"].ZIndex = 0
+Converted["_DropShadowHolder2"].Name = "DropShadowHolder"
+Converted["_DropShadowHolder2"].Parent = Converted["_ImageButton"]
+
+Converted["_DropShadow2"].Image = "rbxassetid://6014261993"
+Converted["_DropShadow2"].ImageColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_DropShadow2"].ImageTransparency = 0.5
+Converted["_DropShadow2"].ScaleType = Enum.ScaleType.Slice
+Converted["_DropShadow2"].SliceCenter = Rect.new(49, 49, 450, 450)
+Converted["_DropShadow2"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_DropShadow2"].BackgroundTransparency = 1
+Converted["_DropShadow2"].BorderSizePixel = 0
+Converted["_DropShadow2"].Position = UDim2.new(0.496167183, 0, 0.488497049, 0)
+Converted["_DropShadow2"].Size = UDim2.new(0.928509951, 47, 0.854780018, 47)
+Converted["_DropShadow2"].ZIndex = 0
+Converted["_DropShadow2"].Name = "DropShadow"
+Converted["_DropShadow2"].Parent = Converted["_DropShadowHolder2"]
+
+Converted["_ImageButton1"].Image = "http://www.roblox.com/asset/?id=103061691262202"
+Converted["_ImageButton1"].BackgroundColor3 = Color3.fromRGB(47.0000009983778, 47.0000009983778, 47.0000009983778)
+Converted["_ImageButton1"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_ImageButton1"].BorderSizePixel = 0
+Converted["_ImageButton1"].Position = UDim2.new(1.02657807, 0, 0.491935492, 0)
+Converted["_ImageButton1"].Size = UDim2.new(0.0664451793, 0, 0.112903222, 0)
+Converted["_ImageButton1"].Parent = Converted["_Coding"]
+
+Converted["_UICorner10"].Parent = Converted["_ImageButton1"]
+
+Converted["_UIStroke2"].Color = Color3.fromRGB(100.00000163912773, 100.00000163912773, 100.00000163912773)
+Converted["_UIStroke2"].Parent = Converted["_ImageButton1"]
+
+Converted["_DropShadowHolder3"].BackgroundTransparency = 1
+Converted["_DropShadowHolder3"].BorderSizePixel = 0
+Converted["_DropShadowHolder3"].Size = UDim2.new(1, 0, 1, 0)
+Converted["_DropShadowHolder3"].ZIndex = 0
+Converted["_DropShadowHolder3"].Name = "DropShadowHolder"
+Converted["_DropShadowHolder3"].Parent = Converted["_ImageButton1"]
+
+Converted["_DropShadow3"].Image = "rbxassetid://6014261993"
+Converted["_DropShadow3"].ImageColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_DropShadow3"].ImageTransparency = 0.5
+Converted["_DropShadow3"].ScaleType = Enum.ScaleType.Slice
+Converted["_DropShadow3"].SliceCenter = Rect.new(49, 49, 450, 450)
+Converted["_DropShadow3"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_DropShadow3"].BackgroundTransparency = 1
+Converted["_DropShadow3"].BorderSizePixel = 0
+Converted["_DropShadow3"].Position = UDim2.new(0.496167183, 0, 0.512306571, 0)
+Converted["_DropShadow3"].Size = UDim2.new(0.928509951, 47, 0.854780018, 47)
+Converted["_DropShadow3"].ZIndex = 0
+Converted["_DropShadow3"].Name = "DropShadow"
+Converted["_DropShadow3"].Parent = Converted["_DropShadowHolder3"]
+
+-- Fake Module Scripts:
+
+local fake_module_scripts = {}
+
+
+-- Fake Local Scripts:
+
+local function TSGBJDZ_fake_script() -- Fake Script: StarterGui.SaladINTERNAL.DarkShit.PanelMAIN.CodeExecution.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_CodeExecution"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local tabshit = script.Parent
+	shared.CodeExecutionToggled = false 
+	local TS = game:GetService("TweenService")
+	local ti = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out) 
+	local pcstat = tabshit.Parent.PCStat 
+	local localplayer = tabshit.Parent.LocalPlayer 
+	local devconsole = tabshit.Parent.DevConsole 
+	local builtinshit = tabshit.Parent.BuiltInScripts 
+	local buildinfo = tabshit.Parent.BuildInfo 
+	local codeexec = tabshit.Parent.Tabs.Coding 
+	
+	function tweenc(object, properties)
+		local tween = TS:Create(object, ti, properties)
+		tween:Play()
+		return tween
+	end
+	
+	tabshit.MouseButton1Click:Connect(function()
+		if shared.CodeExecutionToggled then
+			tweenc(codeexec, {Transparency = 1}) 
+			wait(ti.Time) 
+			codeexec.Visible = false
+			tweenc(tabshit, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(tabshit, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			shared.CodeExecutionToggled = false 
+		else
+			codeexec.Visible = true 
+			tweenc(codeexec, {Transparency = 0})
+			tweenc(tabshit, {BackgroundColor3 = Color3.fromRGB(255, 255, 255)})
+			tweenc(tabshit, {ImageColor3 = Color3.fromRGB(0, 0, 0)})
+			tweenc(pcstat, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(pcstat, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(localplayer, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(localplayer, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(devconsole, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(devconsole, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(builtinshit, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(builtinshit, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(buildinfo, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(buildinfo, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+	
+			shared.CodeExecutionToggled = true  
+			shared.BuildInfoToggled = false  
+			shared.BuiltInScripts = false 
+			shared.DevConsoleToggled = false
+			shared.LocalPlayuerToggled = false 
+			shared.PCStatToggled = false 
+		end
+	end)
+	
+end
+local function LGAXU_fake_script() -- Fake Script: StarterGui.SaladINTERNAL.DarkShit.PanelMAIN.LocalPlayer.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_LocalPlayer"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local tabshit = script.Parent
+	shared.LocalPlayuerToggled = false 
+	local TS = game:GetService("TweenService")
+	local ti = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out) 
+	local pcstat = tabshit.Parent.PCStat 
+	local localplayer = tabshit.Parent.CodeExecution 
+	local devconsole = tabshit.Parent.DevConsole 
+	local builtinshit = tabshit.Parent.BuiltInScripts 
+	local buildinfo = tabshit.Parent.BuildInfo 
+	function tweenc(object, properties)
+		local tween = TS:Create(object, ti, properties)
+		tween:Play()
+	end
+	tabshit.MouseButton1Click:Connect(function()
+		if shared.LocalPlayuerToggled then
+			shared.LocalPlayuerToggled = false 
+			tweenc(tabshit, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(tabshit, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+		else
+			shared.LocalPlayuerToggled = true  
+			tweenc(tabshit, {BackgroundColor3 = Color3.fromRGB(255, 255, 255)})
+			tweenc(tabshit, {ImageColor3 = Color3.fromRGB(0, 0, 0)})
+			tweenc(pcstat, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(pcstat, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(localplayer, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(localplayer, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(devconsole, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(devconsole, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(builtinshit, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(builtinshit, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(buildinfo, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(buildinfo, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			shared.BuildInfoToggled = false  
+			shared.BuiltInScripts = false 
+			shared.DevConsoleToggled = false
+			shared.PCStatToggled = false 
+			shared.CodeExecutionToggled = false 
+		end
+	end)
+	
+end
+local function QTRLVP_fake_script() -- Fake Script: StarterGui.SaladINTERNAL.DarkShit.PanelMAIN.DevConsole.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_DevConsole"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local tabshit = script.Parent
+	shared.DevConsoleToggled = false 
+	local TS = game:GetService("TweenService")
+	local ti = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out) 
+	local pcstat = tabshit.Parent.PCStat 
+	local localplayer = tabshit.Parent.LocalPlayer 
+	local devconsole = tabshit.Parent.CodeExecution 
+	local builtinshit = tabshit.Parent.BuiltInScripts 
+	local buildinfo = tabshit.Parent.BuildInfo 
+	function tweenc(object, properties)
+		local tween = TS:Create(object, ti, properties)
+		tween:Play()
+	end
+	tabshit.MouseButton1Click:Connect(function()
+		if shared.DevConsoleToggled then
+			tweenc(tabshit, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(tabshit, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			shared.DevConsoleToggled = false
+		else
+			tweenc(tabshit, {BackgroundColor3 = Color3.fromRGB(255, 255, 255)})
+			tweenc(tabshit, {ImageColor3 = Color3.fromRGB(0, 0, 0)})
+			tweenc(pcstat, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(pcstat, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(localplayer, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(localplayer, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(devconsole, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(devconsole, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(builtinshit, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(builtinshit, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(buildinfo, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(buildinfo, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			shared.DevConsoleToggled = true
+			shared.BuildInfoToggled = false  
+			shared.BuiltInScripts = false 
+			shared.LocalPlayuerToggled = false 
+			shared.PCStatToggled = false 
+			shared.CodeExecutionToggled = false 
+		end
+	end)
+	
+end
+local function ZGPDBRC_fake_script() -- Fake Script: StarterGui.SaladINTERNAL.DarkShit.PanelMAIN.BuiltInScripts.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_BuiltInScripts"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local tabshit = script.Parent
+	shared.BuiltInScripts = false 
+	local TS = game:GetService("TweenService")
+	local ti = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out) 
+	local pcstat = tabshit.Parent.PCStat 
+	local localplayer = tabshit.Parent.LocalPlayer 
+	local devconsole = tabshit.Parent.DevConsole 
+	local builtinshit = tabshit.Parent.CodeExecution 
+	local buildinfo = tabshit.Parent.BuildInfo 
+	function tweenc(object, properties)
+		local tween = TS:Create(object, ti, properties)
+		tween:Play()
+	end
+	tabshit.MouseButton1Click:Connect(function()
+		if shared.BuiltInScripts then
+			tweenc(tabshit, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(tabshit, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			shared.BuiltInScripts = false 
+		else
+			tweenc(tabshit, {BackgroundColor3 = Color3.fromRGB(255, 255, 255)})
+			tweenc(tabshit, {ImageColor3 = Color3.fromRGB(0, 0, 0)})
+			tweenc(pcstat, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(pcstat, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(localplayer, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(localplayer, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(devconsole, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(devconsole, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(builtinshit, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(builtinshit, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(buildinfo, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(buildinfo, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			shared.BuiltInScripts = true  
+			shared.BuildInfoToggled = false  
+			shared.DevConsoleToggled = false
+			shared.LocalPlayuerToggled = false 
+			shared.PCStatToggled = false 
+			shared.CodeExecutionToggled = false 
+		end
+	end)
+	
+end
+local function MGFKM_fake_script() -- Fake Script: StarterGui.SaladINTERNAL.DarkShit.PanelMAIN.BuildInfo.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_BuildInfo"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local tabshit = script.Parent
+	shared.BuildInfoToggled = false 
+	local TS = game:GetService("TweenService")
+	local ti = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out) 
+	local pcstat = tabshit.Parent.PCStat 
+	local localplayer = tabshit.Parent.LocalPlayer 
+	local devconsole = tabshit.Parent.DevConsole 
+	local builtinshit = tabshit.Parent.BuiltInScripts 
+	local buildinfo = tabshit.Parent.CodeExecution 
+	function tweenc(object, properties)
+		local tween = TS:Create(object, ti, properties)
+		tween:Play()
+	end
+	tabshit.MouseButton1Click:Connect(function()
+		if shared.BuildInfoToggled then
+			tweenc(tabshit, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(tabshit, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			shared.BuildInfoToggled = false 
+		else
+			tweenc(tabshit, {BackgroundColor3 = Color3.fromRGB(255, 255, 255)})
+			tweenc(tabshit, {ImageColor3 = Color3.fromRGB(0, 0, 0)})
+			tweenc(pcstat, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(pcstat, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(localplayer, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(localplayer, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(devconsole, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(devconsole, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(builtinshit, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(builtinshit, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(buildinfo, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(buildinfo, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			shared.BuildInfoToggled = true 
+			shared.BuiltInScripts = false 
+			shared.DevConsoleToggled = false
+			shared.LocalPlayuerToggled = false 
+			shared.PCStatToggled = false 
+			shared.CodeExecutionToggled = false 
+		end
+	end)
+	
+end
+local function JAWQ_fake_script() -- Fake Script: StarterGui.SaladINTERNAL.DarkShit.PanelMAIN.PCStat.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_PCStat"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local tabshit = script.Parent
+	shared.PCStatToggled = false 
+	local TS = game:GetService("TweenService")
+	local ti = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out) 
+	local pcstat = tabshit.Parent.CodeExecution 
+	local localplayer = tabshit.Parent.LocalPlayer 
+	local devconsole = tabshit.Parent.DevConsole 
+	local builtinshit = tabshit.Parent.BuiltInScripts 
+	local buildinfo = tabshit.Parent.BuildInfo 
+	function tweenc(object, properties)
+		local tween = TS:Create(object, ti, properties)
+		tween:Play()
+	end
+	tabshit.MouseButton1Click:Connect(function()
+		if shared.PCStatToggled then
+			tweenc(tabshit, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(tabshit, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			shared.PCStatToggled = false 
+		else
+			tweenc(tabshit, {BackgroundColor3 = Color3.fromRGB(255, 255, 255)})
+			tweenc(tabshit, {ImageColor3 = Color3.fromRGB(0, 0, 0)})
+			tweenc(pcstat, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(pcstat, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(localplayer, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(localplayer, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(devconsole, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(devconsole, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(builtinshit, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(builtinshit, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			tweenc(buildinfo, {BackgroundColor3 = Color3.fromRGB(40, 40, 40)})
+			tweenc(buildinfo, {ImageColor3 = Color3.fromRGB(200, 200, 200)})
+			shared.PCStatToggled = true  
+			shared.BuildInfoToggled = false  
+			shared.BuiltInScripts = false 
+			shared.DevConsoleToggled = false
+			shared.LocalPlayuerToggled = false 
+			shared.CodeExecutionToggled = false 
+		end
+	end)
+	
+end
+local function VPPFAR_fake_script() -- Fake Script: StarterGui.SaladINTERNAL.DarkShit.PanelMAIN.Tabs.Coding.DragBlah
+    local script = Instance.new("LocalScript")
+    script.Name = "DragBlah"
+    script.Parent = Converted["_Coding"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local UIS = game:GetService("UserInputService")
+	local par = script.Parent
+	local isdr
+	local drin
+	local drst
+	local stpos
+	function update(input)
+		local delta = input.Position - drst
+		par.Position = UDim2.new(stpos.X.Scale, stpos.X.Offset + delta.X, stpos.Y.Scale, stpos.Y.Offset + delta.Y)
+	end
+	par.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			isdr = true
+			drst = input.Position
+			stpos = par.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					isdr = false
+				end
+			end)
+		end
+	end)
+	par.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			drin = input
+		end
+	end)
+	UIS.InputChanged:Connect(function(input)
+		if input == drin and isdr then
+			update(input)
+		end
+	end)
+end
+local function HKEYOL_fake_script() -- Fake Script: StarterGui.SaladINTERNAL.DarkShit.PanelMAIN.Tabs.Coding.TextBox.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_TextBox"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+local textbox = script.Parent 
+local highlight = Instance.new("TextLabel", textbox.Parent)
+highlight.Size = textbox.Size
+highlight.Position = textbox.Position
+highlight.BackgroundTransparency = 1
+highlight.TextXAlignment = textbox.TextXAlignment
+highlight.TextYAlignment = textbox.TextYAlignment
+highlight.Font = textbox.Font
+highlight.RichText = true
+highlight.TextScaled = false
+highlight.TextSize = 20
+highlight.Text = "--Paste your scripts here"
+highlight.TextColor3 = Color3.fromRGB(100, 100, 100)  
+highlight.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+highlight.BackgroundTransparency = 0.8 
+highlight.TextWrapped = true
+highlight.TextColor3 = Color3.new(1, 1, 1)  
+textbox.TextTransparency = 0 
+textbox.BackgroundTransparency = 1
+
+local cursor = Instance.new("TextLabel", textbox.Parent)
+cursor.Size = UDim2.new(0, 20, 1, 0) 
+cursor.Position = UDim2.new(0, 0, 0, 0)
+cursor.BackgroundTransparency = 1
+cursor.TextColor3 = Color3.new(1, 1, 1)
+cursor.Text = "|"
+cursor.Visible = false
+
+local cursorvi = false
+local function togglec()
+	cursorvi = not cursorvi
+	cursor.Visible = cursorvi
+end
+
+spawn(function() 
+	while true do
+		togglec()
+		wait(0.5) 
+	end
+end)
+
+local keywords = {
+	["local"] = Color3.fromRGB(0, 121, 184),        
+	["function"] = Color3.fromRGB(189, 98, 255),    
+	["if"] = Color3.fromRGB(198, 77, 255),          
+	["then"] = Color3.fromRGB(0, 175, 239),         
+	["end"] = Color3.fromRGB(189, 98, 255),         
+	["for"] = Color3.fromRGB(0, 100, 255),          
+	["while"] = Color3.fromRGB(0, 130, 255),        
+	["do"] = Color3.fromRGB(0, 150, 255),           
+	["return"] = Color3.fromRGB(189, 98, 255),      
+	["true"] = Color3.fromRGB(0, 121, 184),         
+	["false"] = Color3.fromRGB(0, 121, 184),        
+}
+
+local renv = {
+	print, warn, error, assert, collectgarbage, load, require, select, tonumber, tostring, type, xpcall, pairs, next, ipairs,
+	newproxy, rawequal, rawget, rawset, rawlen, setmetatable, PluginManager,
+	coroutine.create, coroutine.resume, coroutine.running, coroutine.status, coroutine.wrap, coroutine.yield,
+	bit32.arshift, bit32.band, bit32.bnot, bit32.bor, bit32.btest, bit32.extract, bit32.lshift, bit32.replace, bit32.rshift, bit32.xor,
+	math.abs, math.acos, math.asin, math.atan, math.atan2, math.ceil, math.cos, math.cosh, math.deg, math.exp, math.floor, math.fmod, math.frexp, math.ldexp, math.log, math.log10, math.max, math.min, math.modf, math.pow, math.rad, math.random, math.randomseed, math.sin, math.sinh, math.sqrt, math.tan, math.tanh,
+	string.byte, string.char, string.find, string.format, string.gmatch, string.gsub, string.len, string.lower, string.match, string.pack, string.packsize, string.rep, string.reverse, string.sub, string.unpack, string.upper,
+	table.concat, table.insert, table.pack, table.remove, table.sort, table.unpack,
+	utf8.char, utf8.charpattern, utf8.codepoint, utf8.codes, utf8.len, utf8.nfdnormalize, utf8.nfcnormalize,
+	os.clock, os.date, os.difftime, os.time,
+	delay, elapsedTime, require, spawn, tick, time, typeof, UserSettings, version, wait,
+	task.defer, task.delay, task.spawn, task.wait,
+	debug.traceback, debug.profilebegin, debug.profileend
+}
+
+for _, func in ipairs(renv) do
+	local funcname = debug.info(func, "n")  
+	if funcname then
+		keywords[funcname] = Color3.fromRGB(255, 255, 85)  
+	end
+end
+
+function syntaxhighlight(text)
+	local yestext = text
+	yestext = string.gsub(yestext, "\"([^\"]*)\"", "<font color=\"rgb(255, 165, 0)\">\"%1\"</font>")  
+	for keyword, color in pairs(keywords) do
+		yestext = string.gsub(yestext, "%f[%a]" .. keyword .. "%f[%A]", "<font color=\"rgb(".. tostring(math.floor(color.r * 255)) .. ",".. tostring(math.floor(color.g * 255)) .. ",".. tostring(math.floor(color.b * 255)) .. ")\">" .. keyword .. "</font>")
+	end
+	return yestext
+end
+
+textbox:GetPropertyChangedSignal("Text"):Connect(function()
+	local text = textbox.Text
+	if #text > 200000 then  
+		highlight.Text = text  
+	else
+		local yestext = syntaxhighlight(text)
+		highlight.Text = yestext
+	end
+	local txtsixe = highlight.TextSize
+	local cxpos = txtsixe
+	cursor.Position = UDim2.new(0, cxpos, 0, 0) 
+end)
+
+textbox:GetPropertyChangedSignal("Text"):Connect(function()
+	cursor.Visible = true
+end)
+
+textbox.FocusLost:Connect(function()
+	cursor.Visible = false
+end)
+
+textbox.Focused:Connect(function()
+	cursor.Visible = true
+end)
+end
+local function UIFKL_fake_script() -- Fake Script: StarterGui.SaladINTERNAL.DarkShit.PanelMAIN.Tabs.Coding.ImageButton.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_ImageButton"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local s = script.Parent 
+	s.MouseButton1Click:Connect(function()
+		loadstring(s.Parent.TextBox.Text)()
+	end)
+end
+local function CHGY_fake_script() -- Fake Script: StarterGui.SaladINTERNAL.DarkShit.PanelMAIN.Tabs.Coding.ImageButton.LocalScript
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_ImageButton1"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local s = script.Parent 
+	s.MouseButton1Click:Connect(function()
+		s.Parent.TextBox.Text = ""
+	end)
+end
+local function AQCCPJF_fake_script() -- Fake Script: StarterGui.SaladINTERNAL.UIToggle
+    local script = Instance.new("LocalScript")
+    script.Name = "UIToggle"
+    script.Parent = Converted["_SaladINTERNAL"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local TS = game:GetService("TweenService")
+	local blur = script.Parent.DarkShit
+	local panel = blur.PanelMAIN
+	local UIS = game:GetService("UserInputService")
+	local showing = true
+	local TINFO = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+	local bto = TS:Create(blur, TweenInfo.new(0.4), {Transparency = 1})
+	local bti = TS:Create(blur, TweenInfo.new(0.4), {Transparency = 0.4})
+	local pto = TS:Create(panel, TweenInfo.new(0.5), {Transparency = 1})
+	local pti = TS:Create(panel, TweenInfo.new(0.5), {Transparency = 0})
+	local shadow = panel.DropShadowHolder.DropShadow
+	local codeexec = panel.CodeExecution
+	local pcstat = panel.PCStat
+	local localplr = panel.LocalPlayer
+	local console = panel.DevConsole
+	local builtinshit = panel.BuiltInScripts
+	local buildinfo = panel.BuildInfo
+	function buttonshittoggleblah(show)
+		local ttrnsp = show and 0 or 1
+		for _, button in ipairs({codeexec, pcstat, localplr, console, builtinshit, buildinfo}) do
+			local btween = TS:Create(button, TINFO, {ImageTransparency = ttrnsp})
+			btween:Play()
+			if button.BackgroundTransparency then
+				local btween2 = TS:Create(button, TINFO, {BackgroundTransparency = ttrnsp})
+				btween2:Play()
+			end
+		end
+	end
+	function shadowtoggle(show)
+		local shadowt = TS:Create(shadow, TINFO, {ImageTransparency = show and 0.5 or 1})
+		shadowt:Play()
+	end
+	function toggleBlurAndPanel(input, gpr)
+		if not gpr and input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == Enum.KeyCode.RightShift then
+			if showing then 
+				showing = false 
+				bto:Play()
+				pto:Play()
+				buttonshittoggleblah(false)
+				shadowtoggle(false)
+	
+				bto.Completed:Wait()
+				pto.Completed:Wait()
+			else 
+				showing = true 
+				blur.Visible = true 
+				panel.Visible = true 
+				buttonshittoggleblah(true)
+				shadowtoggle(true)
+	
+				bti:Play()
+				pti:Play()
+			end
+		end
+	end
+	UIS.InputBegan:Connect(
+		function(input, gpr)
+			if not gpr and input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == Enum.KeyCode.RightShift then
+				if showing then 
+					showing = false 
+					bto:Play()
+					pto:Play()
+					buttonshittoggleblah(false)
+					shadowtoggle(false)
+	
+					bto.Completed:Wait()
+					pto.Completed:Wait()
+				else 
+					showing = true 
+					blur.Visible = true 
+					panel.Visible = true 
+					buttonshittoggleblah(true)
+					shadowtoggle(true)
+	
+					bti:Play()
+					pti:Play()
+				end
+			end
+		end 
+	)
+	
+end
+
+coroutine.wrap(TSGBJDZ_fake_script)()
+coroutine.wrap(LGAXU_fake_script)()
+coroutine.wrap(QTRLVP_fake_script)()
+coroutine.wrap(ZGPDBRC_fake_script)()
+coroutine.wrap(MGFKM_fake_script)()
+coroutine.wrap(JAWQ_fake_script)()
+coroutine.wrap(VPPFAR_fake_script)()
+coroutine.wrap(HKEYOL_fake_script)()
+coroutine.wrap(UIFKL_fake_script)()
+coroutine.wrap(CHGY_fake_script)()
+coroutine.wrap(AQCCPJF_fake_script)()
