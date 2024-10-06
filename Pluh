@@ -151,6 +151,7 @@ local Converted = {
 Converted["_Bar"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Converted["_Bar"].Name = "Bar"
 Converted["_Bar"].Parent = game:GetService("CoreGui")
+Converted["_Bar"].Enabled = false 
 Converted["_Blur"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_Blur"].BackgroundTransparency = 0.6000000238418579
 Converted["_Blur"].BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1170,6 +1171,21 @@ local function XUYJMN_fake_script()
         }
         return keysmap[char:lower()] or Enum.KeyCode.K  
     end
+    function toggleblur(visible)
+        local blureffect = workspace.CurrentCamera:FindFirstChild("Blur")
+        if visible then
+            if not blureffect then
+                blureffect = Instance.new("BlurEffect")
+                blureffect.Size = 24 
+                blureffect.Name = "Blur"
+                blureffect.Parent = workspace.CurrentCamera
+            end
+        else
+            if blureffect then
+                blureffect:Destroy()
+            end
+        end
+    end
     local currentbind = Enum.KeyCode.K
     local function bindupd()
         local text = txtbox.Text
@@ -1180,6 +1196,7 @@ local function XUYJMN_fake_script()
         if input.KeyCode == currentbind then
             local parentUI = script.Parent.Parent
             parentUI.Enabled = not parentUI.Enabled
+            toggleblur(parentUI.Enabled)
         end
     end)
 end
@@ -1412,3 +1429,8 @@ coroutine.wrap(PLWSDQ_fake_script)()
 coroutine.wrap(BYEUD_fake_script)()
 coroutine.wrap(TUPTJBR_fake_script)()
 
+game:GetService("StarterGui"):SetCore("SendNotification",{
+    Title = "Salad Injected",
+    Text = "Press 'K' to open the UI",
+    Duration = 5
+})
