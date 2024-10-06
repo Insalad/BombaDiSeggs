@@ -1087,43 +1087,43 @@ local function UTTJLHY_fake_script()
         end
         return req(obj)
     end
-	local keybind = script.Parent
-	local uis = game:GetService("UserInputService")
 
-	function uppercase()
-		if keybind:IsFocused() then
-			if #keybind.Text > 2 then
-				keybind.Text = string.sub(keybind.Text, 1, 1)
-			end
-			keybind.Text = string.upper(keybind.Text)
-			keybind:ReleaseFocus()
-		end
-	end
+    local keybind = script.Parent
+    local uis = game:GetService("UserInputService")
 
-	function updatetxtboxyes(input)
-		if keybind:IsFocused() then
-			if input.KeyCode == Enum.KeyCode.LeftShift then
-				keybind.Text = "LS"
-			elseif input.KeyCode == Enum.KeyCode.RightShift then
-				keybind.Text = "RS"
-			elseif input.KeyCode == Enum.KeyCode.LeftAlt then
-				keybind.Text = "LA"
-			elseif input.KeyCode == Enum.KeyCode.RightAlt then
-				keybind.Text = "RA"
-			end
-		end
-	end
+    function uppercase()
+        if keybind:IsFocused() then
+            if #keybind.Text > 2 then
+                keybind.Text = string.sub(keybind.Text, 1, 1)
+            end
+            keybind.Text = string.upper(keybind.Text)
+        end
+    end
+    function updatetxtboxyes(input)
+        if keybind:IsFocused() then
+            if input.KeyCode == Enum.KeyCode.LeftShift then
+                keybind.Text = "LS"
+            elseif input.KeyCode == Enum.KeyCode.RightShift then
+                keybind.Text = "RS"
+            elseif input.KeyCode == Enum.KeyCode.LeftAlt then
+                keybind.Text = "LA"
+            elseif input.KeyCode == Enum.KeyCode.RightAlt then
+                keybind.Text = "RA"
+            end
+        end
+    end
 
-	keybind:GetPropertyChangedSignal("Text"):Connect(uppercase)
-	uis.InputBegan:Connect(function(input)
-		updatetxtboxyes(input)
-	end)
-
+    keybind:GetPropertyChangedSignal("Text"):Connect(uppercase)
+    uis.InputBegan:Connect(function(input)
+        updatetxtboxyes(input)
+    end)
 end
+
 local function XUYJMN_fake_script() 
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Blur"]
+
     local req = require
     local require = function(obj)
         local fake = fake_module_scripts[obj]
@@ -1132,65 +1132,58 @@ local function XUYJMN_fake_script()
         end
         return req(obj)
     end
-	local textBox = script.Parent.Home.UiKeybind.TextBox
-	local uis = game:GetService("UserInputService")
 
-	local function keyshit(char)
-		local keysmap = {
-			a = Enum.KeyCode.A,
-			b = Enum.KeyCode.B,
-			c = Enum.KeyCode.C,
-			d = Enum.KeyCode.D,
-			e = Enum.KeyCode.E,
-			f = Enum.KeyCode.F,
-			g = Enum.KeyCode.G,
-			h = Enum.KeyCode.H,
-			i = Enum.KeyCode.I,
-			j = Enum.KeyCode.J,
-			k = Enum.KeyCode.K,
-			l = Enum.KeyCode.L,
-			m = Enum.KeyCode.M,
-			n = Enum.KeyCode.N,
-			o = Enum.KeyCode.O,
-			p = Enum.KeyCode.P,
-			q = Enum.KeyCode.Q,
-			r = Enum.KeyCode.R,
-			s = Enum.KeyCode.S,
-			t = Enum.KeyCode.T,
-			u = Enum.KeyCode.U,
-			v = Enum.KeyCode.V,
-			w = Enum.KeyCode.W,
-			x = Enum.KeyCode.X,
-			y = Enum.KeyCode.Y,
-			z = Enum.KeyCode.Z,
-			rs = Enum.KeyCode.RightShift,
-			ls = Enum.KeyCode.LeftShift,
-			la = Enum.KeyCode.LeftAlt,
-			ra = Enum.KeyCode.RightAlt
-		}
-		return keysmap[char:lower()] or Enum.KeyCode.K
-	end
-	local currentbind = Enum.KeyCode.K
-	local function bindupd()
-		local text = textBox.Text
-		currentbind = keyshit(text)
-	end
-
-	bindupd()
-
-	textBox:GetPropertyChangedSignal("Text"):Connect(bindupd)
-
-	uis.InputBegan:Connect(function(input)
-		if input.KeyCode == currentbind then
-			if script.Parent.Parent.Enabled then 
-				script.Parent.Parent.Enabled = false 
-			else 
-				script.Parent.Parent.Enabled = true 
-			end
-		end
-	end)
-
+    local txtbox = script.Parent.Home.UiKeybind.TextBox
+    local uis = game:GetService("UserInputService")
+    local function keyshit(char)
+        local keysmap = {
+            a = Enum.KeyCode.A,
+            b = Enum.KeyCode.B,
+            c = Enum.KeyCode.C,
+            d = Enum.KeyCode.D,
+            e = Enum.KeyCode.E,
+            f = Enum.KeyCode.F,
+            g = Enum.KeyCode.G,
+            h = Enum.KeyCode.H,
+            i = Enum.KeyCode.I,
+            j = Enum.KeyCode.J,
+            k = Enum.KeyCode.K,
+            l = Enum.KeyCode.L,
+            m = Enum.KeyCode.M,
+            n = Enum.KeyCode.N,
+            o = Enum.KeyCode.O,
+            p = Enum.KeyCode.P,
+            q = Enum.KeyCode.Q,
+            r = Enum.KeyCode.R,
+            s = Enum.KeyCode.S,
+            t = Enum.KeyCode.T,
+            u = Enum.KeyCode.U,
+            v = Enum.KeyCode.V,
+            w = Enum.KeyCode.W,
+            x = Enum.KeyCode.X,
+            y = Enum.KeyCode.Y,
+            z = Enum.KeyCode.Z,
+            rs = Enum.KeyCode.RightShift,
+            ls = Enum.KeyCode.LeftShift,
+            la = Enum.KeyCode.LeftAlt,
+            ra = Enum.KeyCode.RightAlt
+        }
+        return keysmap[char:lower()] or Enum.KeyCode.K  
+    end
+    local currentbind = Enum.KeyCode.K
+    local function bindupd()
+        local text = txtbox.Text
+        currentbind = keyshit(text)
+    end
+    txtbox:GetPropertyChangedSignal("Text"):Connect(bindupd)
+    uis.InputBegan:Connect(function(input)
+        if input.KeyCode == currentbind then
+            local parentUI = script.Parent.Parent
+            parentUI.Enabled = not parentUI.Enabled
+        end
+    end)
 end
+
 local function WWARFJ_fake_script()
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
@@ -1418,3 +1411,4 @@ coroutine.wrap(BSQQK_fake_script)()
 coroutine.wrap(PLWSDQ_fake_script)()
 coroutine.wrap(BYEUD_fake_script)()
 coroutine.wrap(TUPTJBR_fake_script)()
+
