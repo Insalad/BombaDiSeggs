@@ -415,6 +415,7 @@ Converted["_Lplr"].Size = UDim2.new(0.290053159, 0, 0.213402137, 0)
 Converted["_Lplr"].Visible = false
 Converted["_Lplr"].Name = "Lplr"
 Converted["_Lplr"].Parent = Converted["_Blur"]
+Converted["_Lplr"].BackgroundTransparency = 1 
 Converted["_UICorner10"].Parent = Converted["_Lplr"]
 Converted["_UIStroke1"].Color = Color3.fromRGB(127.00000762939453, 127.00000762939453, 127.00000762939453)
 Converted["_UIStroke1"].Parent = Converted["_Lplr"]
@@ -889,6 +890,9 @@ local function IARMZP_fake_script()
     local home = script.Parent
     local homegui = script.Parent.Parent.Parent.Home
     local toggled = false
+    for _, child in ipairs(homegui:GetChildren()) do
+        child.BackgroundTransparency = 1 
+    end
     home.MouseButton1Click:Connect(function()
         toggled = not toggled
         if toggled then
@@ -1173,15 +1177,26 @@ local function XUYJMN_fake_script()
     end
     function toggleblur(visible)
         local blureffect = workspace.CurrentCamera:FindFirstChild("Blur")
+        
         if visible then
             if not blureffect then
                 blureffect = Instance.new("BlurEffect")
-                blureffect.Size = 24 
+                blureffect.Size = 0 
                 blureffect.Name = "Blur"
                 blureffect.Parent = workspace.CurrentCamera
             end
+            local ti = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out) 
+            local goal = {Size = 24}
+            local tween = game:GetService("TweenService"):Create(blureffect, ti, goal)
+            tween:Play()
         else
             if blureffect then
+                local ti = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out) 
+                local goal = {Size = 0}
+                local tween = game:GetService("TweenService"):Create(blureffect, ti, goal)
+                tween:Play()
+                tween.Completed:Wait() 
+                
                 blureffect:Destroy()
             end
         end
