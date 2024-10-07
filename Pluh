@@ -866,11 +866,11 @@ function tcc(object, newimgc, newbgc)
     bgctw:Play()
 end
 
-function tws(element, fin, duration)
+function tws(element, fin, duration) -- yes duration wont do shit and im too lazy to remove it lolz!1111
     if fin then
         element.Visible = true
     end
-    local ti = TweenInfo.new(duration, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut)
+    local ti = TweenInfo.new(0.2, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut)
     local trg = {}
     trg.BackgroundTransparency = fin and 0 or 1  
     local tween = game:GetService("TweenService"):Create(element, ti, trg)
