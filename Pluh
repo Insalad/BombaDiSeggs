@@ -1,4 +1,4 @@
-if game.Players.LocalPlayer.PlayerGui:FindFirstChild("Bar") then return end
+if game:GetService("CoreGui"):FindFirstChild("Bar") then return end
 local originalfov = workspace.CurrentCamera.FieldOfView
 local sound = Instance.new("Sound")
 sound.Parent = game.workspace	
@@ -150,7 +150,7 @@ local Converted = {
 
 Converted["_Bar"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Converted["_Bar"].Name = "Bar"
-Converted["_Bar"].Parent = game.Players.LocalPlayer.PlayerGui
+Converted["_Bar"].Parent = game:GetService("CoreGui")
 Converted["_Bar"].Enabled = false 
 Converted["_Blur"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_Blur"].BackgroundTransparency = 1
@@ -1203,8 +1203,8 @@ local function XUYJMN_fake_script()
         end
     end
 
-    local barfr = game.Players.LocalPlayer.PlayerGui.Bar.Blur.BarFrame
-    local default = game.Players.LocalPlayer.PlayerGui:FindFirstChild("Bar").Blur
+    local barfr = game:GetService("CoreGui").Bar.Blur.BarFrame
+    local default = game:GetService("CoreGui"):FindFirstChild("Bar").Blur
     local lplrinf = default.Home.Player
     local info = default.Home.Information
     local keybind = default.Home.UiKeybind
@@ -1512,7 +1512,7 @@ local Converted = {
 
 Converted["_SaladNotif"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Converted["_SaladNotif"].Name = "SaladNotif"
-Converted["_SaladNotif"].Parent = game.Players.LocalPlayer.PlayerGui
+Converted["_SaladNotif"].Parent = game:GetService("CoreGui")
 
 Converted["_Holder"].BackgroundColor3 = Color3.fromRGB(30.00000201165676, 30.00000201165676, 30.00000201165676)
 Converted["_Holder"].BorderColor3 = Color3.fromRGB(0, 0, 0)
