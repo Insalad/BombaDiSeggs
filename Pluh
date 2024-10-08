@@ -1444,8 +1444,132 @@ coroutine.wrap(PLWSDQ_fake_script)()
 coroutine.wrap(BYEUD_fake_script)()
 coroutine.wrap(TUPTJBR_fake_script)()
 
-game:GetService("StarterGui"):SetCore("SendNotification",{
-    Title = "Salad Injected",
-    Text = "Press 'K' to open the UI",
-    Duration = 5
-})
+local Converted = {
+	["_SaladNotif"] = Instance.new("ScreenGui");
+	["_Holder"] = Instance.new("Frame");
+	["_UICorner"] = Instance.new("UICorner");
+	["_DropShadowHolder"] = Instance.new("Frame");
+	["_DropShadow"] = Instance.new("ImageLabel");
+	["_ImageLabel"] = Instance.new("ImageLabel");
+	["_UIGradient"] = Instance.new("UIGradient");
+	["_msg"] = Instance.new("TextLabel");
+	["_LocalScript"] = Instance.new("LocalScript");
+	["_UIStroke"] = Instance.new("UIStroke");
+}
+
+Converted["_SaladNotif"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Converted["_SaladNotif"].Name = "SaladNotif"
+Converted["_SaladNotif"].Parent = game:GetService("CoreGui")
+
+Converted["_Holder"].BackgroundColor3 = Color3.fromRGB(30.00000201165676, 30.00000201165676, 30.00000201165676)
+Converted["_Holder"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_Holder"].BorderSizePixel = 0
+Converted["_Holder"].Position = UDim2.new(0.340999991, 0, 1.10000002, 0)
+Converted["_Holder"].Size = UDim2.new(0.324261278, 0, 0.0511627905, 0)
+Converted["_Holder"].Name = "Holder"
+Converted["_Holder"].Parent = Converted["_SaladNotif"]
+
+Converted["_UICorner"].Parent = Converted["_Holder"]
+
+Converted["_DropShadowHolder"].BackgroundTransparency = 1
+Converted["_DropShadowHolder"].BorderSizePixel = 0
+Converted["_DropShadowHolder"].Size = UDim2.new(1, 0, 1, 0)
+Converted["_DropShadowHolder"].ZIndex = 0
+Converted["_DropShadowHolder"].Name = "DropShadowHolder"
+Converted["_DropShadowHolder"].Parent = Converted["_Holder"]
+
+Converted["_DropShadow"].Image = "rbxassetid://6014261993"
+Converted["_DropShadow"].ImageColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_DropShadow"].ImageTransparency = 0.5
+Converted["_DropShadow"].ScaleType = Enum.ScaleType.Slice
+Converted["_DropShadow"].SliceCenter = Rect.new(49, 49, 450, 450)
+Converted["_DropShadow"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_DropShadow"].BackgroundTransparency = 1
+Converted["_DropShadow"].BorderSizePixel = 0
+Converted["_DropShadow"].Position = UDim2.new(0.502398074, 0, 0.49242425, 0)
+Converted["_DropShadow"].Size = UDim2.new(1.07913673, 0, 1.92424238, 0)
+Converted["_DropShadow"].ZIndex = 0
+Converted["_DropShadow"].Name = "DropShadow"
+Converted["_DropShadow"].Parent = Converted["_DropShadowHolder"]
+
+Converted["_ImageLabel"].Image = "rbxassetid://6026568227"
+Converted["_ImageLabel"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_ImageLabel"].BackgroundTransparency = 1
+Converted["_ImageLabel"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_ImageLabel"].BorderSizePixel = 0
+Converted["_ImageLabel"].Position = UDim2.new(0.0143884895, 0, 0.121212125, 0)
+Converted["_ImageLabel"].Size = UDim2.new(0.0599520393, 0, 0.75757575, 0)
+Converted["_ImageLabel"].Parent = Converted["_Holder"]
+
+Converted["_UIGradient"].Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(94.0000019967556, 94.0000019967556, 94.0000019967556))
+}
+Converted["_UIGradient"].Parent = Converted["_ImageLabel"]
+
+Converted["_msg"].Font = Enum.Font.SourceSans
+Converted["_msg"].Text = "Salad injected, press 'K' to open the UI"
+Converted["_msg"].TextColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_msg"].TextScaled = true
+Converted["_msg"].TextSize = 14
+Converted["_msg"].TextWrapped = true
+Converted["_msg"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_msg"].BackgroundTransparency = 1
+Converted["_msg"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_msg"].BorderSizePixel = 0
+Converted["_msg"].Position = UDim2.new(0.0959232599, 0, 0.121212125, 0)
+Converted["_msg"].Size = UDim2.new(0.870503604, 0, 0.75757575, 0)
+Converted["_msg"].Name = "msg"
+Converted["_msg"].Parent = Converted["_Holder"]
+
+Converted["_UIStroke"].Color = Color3.fromRGB(124.00000780820847, 124.00000780820847, 124.00000780820847)
+Converted["_UIStroke"].Parent = Converted["_Holder"]
+
+local fake_module_scripts = {}
+
+local function ZRAB_fake_script() 
+    local script = Instance.new("LocalScript")
+    script.Name = "LocalScript"
+    script.Parent = Converted["_Holder"]
+    local req = require
+    local require = function(obj)
+        local fake = fake_module_scripts[obj]
+        if fake then
+            return fake()
+        end
+        return req(obj)
+    end
+
+	local holder = script.Parent
+	local ts = game:GetService("TweenService")
+	local tweeni1 = TweenInfo.new(
+		0.4,
+		Enum.EasingStyle.Quad, 
+		Enum.EasingDirection.Out,
+		0, 
+		false,
+		0 
+	)
+	local goal1 = {}
+	goal1.Position = UDim2.new(0.341, 0, 0.932, 0)
+	local tween1 = ts:Create(holder, tweeni1, goal1)
+	local tweeni2 = TweenInfo.new(
+		0.4, 
+		Enum.EasingStyle.Quad, 
+		Enum.EasingDirection.Out, 
+		0, 
+		false, 
+		0 
+	)
+	local goal2 = {}
+	goal2.Position = UDim2.new(0.341, 0, 1.1, 0)
+	local tween2 = ts:Create(holder, tweeni2, goal2)
+	tween1.Completed:Connect(function()
+		task.wait(3)
+		tween2:Play()
+	end)
+	tween1:Play()
+	
+end
+
+coroutine.wrap(ZRAB_fake_script)()
