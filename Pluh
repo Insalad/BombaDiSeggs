@@ -1216,9 +1216,9 @@ local function XUYJMN_fake_script()
         local elements = {lplrinf, info, keybind, lplrsec, codingsec, dashboardsec}
         if toggled then
             for _, element in ipairs(elements) do
-                if element and element.Visible and element.Transparency > 0 then
+                if element and element.Visible and element.BackgroundTransparency > 0 then
                     local ti = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-                    local goal = {Transparency = 0}
+                    local goal = {BackgroundTransparency = 0} 
                     local tween = game:GetService("TweenService"):Create(element, ti, goal)
                     tween:Play()
                 end
@@ -1229,13 +1229,11 @@ local function XUYJMN_fake_script()
             local goal1 = {Position = UDim2.new(0.354667366, 0, 0.923469663, 0)}
             local tween1 = game:GetService("TweenService"):Create(barfr, ti, goal1)
             tween1:Play()
-            
         else
             for _, element in ipairs(elements) do
-                if element and element.Visible and element.Transparency < 1 then
-                    local ogtransparency = element.Transparency
+                if element and element.Visible and element.BackgroundTransparency < 1 then
                     local ti = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-                    local goal = {Transparency = ogtransparency}
+                    local goal = {BackgroundTransparency = 1} 
                     local tween = game:GetService("TweenService"):Create(element, ti, goal)
                     tween:Play()
                 end
@@ -1250,7 +1248,6 @@ local function XUYJMN_fake_script()
             end)
         end
     end
-    
 
     local currentbind = Enum.KeyCode.K
     local function bindupd()
