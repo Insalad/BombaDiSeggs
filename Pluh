@@ -1,4 +1,4 @@
-if game:GetService("CoreGui"):FindFirstChild("Bar") then return end
+if game.Players.LocalPlayer.PlayerGui:FindFirstChild("Bar") then return end
 local originalfov = workspace.CurrentCamera.FieldOfView
 local sound = Instance.new("Sound")
 sound.Parent = game.workspace	
@@ -150,10 +150,10 @@ local Converted = {
 
 Converted["_Bar"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Converted["_Bar"].Name = "Bar"
-Converted["_Bar"].Parent = game:GetService("CoreGui")
+Converted["_Bar"].Parent = game.Players.LocalPlayer.PlayerGui
 Converted["_Bar"].Enabled = false 
 Converted["_Blur"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Converted["_Blur"].BackgroundTransparency = 0.6000000238418579
+Converted["_Blur"].BackgroundTransparency = 1
 Converted["_Blur"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_Blur"].BorderSizePixel = 0
 Converted["_Blur"].Position = UDim2.new(0, 0, -0.13909775, 0)
@@ -163,7 +163,7 @@ Converted["_Blur"].Parent = Converted["_Bar"]
 Converted["_BarFrame"].BackgroundColor3 = Color3.fromRGB(42.000001296401024, 42.000001296401024, 42.000001296401024)
 Converted["_BarFrame"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_BarFrame"].BorderSizePixel = 0
-Converted["_BarFrame"].Position = UDim2.new(0.354667366, 0, 0.923469663, 0)
+Converted["_BarFrame"].Position = UDim2.new(0.354667366, 0, 1.1, 0)
 Converted["_BarFrame"].Size = UDim2.new(0.290053159, 0, 0.0638448074, 0)
 Converted["_BarFrame"].Name = "BarFrame"
 Converted["_BarFrame"].Parent = Converted["_Blur"]
@@ -1140,6 +1140,7 @@ local function XUYJMN_fake_script()
 
     local txtbox = script.Parent.Home.UiKeybind.TextBox
     local uis = game:GetService("UserInputService")
+
     local function keyshit(char)
         local keysmap = {
             a = Enum.KeyCode.A,
@@ -1173,8 +1174,9 @@ local function XUYJMN_fake_script()
             la = Enum.KeyCode.LeftAlt,
             ra = Enum.KeyCode.RightAlt
         }
-        return keysmap[char:lower()] or Enum.KeyCode.K  
+        return keysmap[char:lower()] or Enum.KeyCode.K
     end
+
     function toggleblur(visible)
         local blureffect = workspace.CurrentCamera:FindFirstChild("Blur")
         
@@ -1185,33 +1187,84 @@ local function XUYJMN_fake_script()
                 blureffect.Name = "Blur"
                 blureffect.Parent = workspace.CurrentCamera
             end
-            local ti = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out) 
+            local ti = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
             local goal = {Size = 24}
             local tween = game:GetService("TweenService"):Create(blureffect, ti, goal)
             tween:Play()
         else
             if blureffect then
-                local ti = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out) 
+                local ti = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
                 local goal = {Size = 0}
                 local tween = game:GetService("TweenService"):Create(blureffect, ti, goal)
                 tween:Play()
-                tween.Completed:Wait() 
-                
+                tween.Completed:Wait()
                 blureffect:Destroy()
             end
         end
     end
+
+    local barfr = game.Players.LocalPlayer.PlayerGui.Bar.Blur.BarFrame
+    local default = game.Players.LocalPlayer.PlayerGui:FindFirstChild("Bar").Blur
+    local lplrinf = default.Home.Player
+    local info = default.Home.Information
+    local keybind = default.Home.UiKeybind
+    local lplrsec = default.Lplr
+    local codingsec = default.ExecutorFR
+    local dashboardsec = default.ScriptHubFR
+    
+    function togglebarshit(toggled, parentUI)
+        local elements = {lplrinf, info, keybind, lplrsec, codingsec, dashboardsec}
+        if toggled then
+            for _, element in ipairs(elements) do
+                if element and element.Visible and element.Transparency > 0 then
+                    local ti = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+                    local goal = {Transparency = 0}
+                    local tween = game:GetService("TweenService"):Create(element, ti, goal)
+                    tween:Play()
+                end
+            end
+            parentUI.Enabled = true
+            toggleblur(parentUI.Enabled)
+            local ti = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+            local goal1 = {Position = UDim2.new(0.354667366, 0, 0.923469663, 0)}
+            local tween1 = game:GetService("TweenService"):Create(barfr, ti, goal1)
+            tween1:Play()
+            
+        else
+            for _, element in ipairs(elements) do
+                if element and element.Visible and element.Transparency < 1 then
+                    local ogtransparency = element.Transparency
+                    local ti = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+                    local goal = {Transparency = ogtransparency}
+                    local tween = game:GetService("TweenService"):Create(element, ti, goal)
+                    tween:Play()
+                end
+            end
+            local ti = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+            local goal2 = {Position = UDim2.new(0.354667366, 0, 1.1, 0)}
+            local tween2 = game:GetService("TweenService"):Create(barfr, ti, goal2)
+            tween2:Play()
+            tween2.Completed:Connect(function()
+                parentUI.Enabled = false
+                toggleblur(parentUI.Enabled)
+            end)
+        end
+    end
+    
+
     local currentbind = Enum.KeyCode.K
     local function bindupd()
         local text = txtbox.Text
         currentbind = keyshit(text)
     end
     txtbox:GetPropertyChangedSignal("Text"):Connect(bindupd)
+
+    local toggled = false
     uis.InputBegan:Connect(function(input)
         if input.KeyCode == currentbind then
             local parentUI = script.Parent.Parent
-            parentUI.Enabled = not parentUI.Enabled
-            toggleblur(parentUI.Enabled)
+            toggled = not toggled
+            togglebarshit(toggled, parentUI)
         end
     end)
 end
@@ -1459,7 +1512,7 @@ local Converted = {
 
 Converted["_SaladNotif"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Converted["_SaladNotif"].Name = "SaladNotif"
-Converted["_SaladNotif"].Parent = game:GetService("CoreGui")
+Converted["_SaladNotif"].Parent = game.Players.LocalPlayer.PlayerGui
 
 Converted["_Holder"].BackgroundColor3 = Color3.fromRGB(30.00000201165676, 30.00000201165676, 30.00000201165676)
 Converted["_Holder"].BorderColor3 = Color3.fromRGB(0, 0, 0)
